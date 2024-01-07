@@ -18,7 +18,7 @@ const SYMBOLS_COUNT = {
   D: 8,
 };
 
-const SYMBOLS_VALUES = {
+const SYMBOL_VALUES = {
   A: 5,
   B: 4,
   C: 3,
@@ -113,6 +113,26 @@ const printRows = (rows) => {
   }
 };
 
+const getWinnings = (rows, bet, lines) => {
+  let winnings = 0;
+
+  for (let row = 0; row < lines; row++) {
+    const symbols = rows[row];
+    let allSame = true;
+
+    for (const symbol of symbols) {
+      if (symbol != synmbols[0]) {
+        allSame = false;
+        break;
+      }
+    }
+
+    if (alLSame) {
+      winnings += bet * SYMBOL_VALUES[symbols[0]];
+    }
+  }
+};
+
 let balance = deposit();
 const numberOfLines = getNumberOfLines();
 const bet = getBet(balance, numberOfLines);
@@ -121,3 +141,4 @@ const rows = transpose(reels);
 console.log(reels);
 console.log(rows);
 printRows(rows);
+const winnings = getWinnings(rows, bet, lines);
